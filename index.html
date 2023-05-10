@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,32 +9,45 @@
     <script src="./js/script.js" defer></script>
     <title>Document</title>
 </head>
+
 <body>
-  <div id="body">
-    <div id="calculator">
-      <div id="display"></div>
-      <button class="button b7">7</button>
-      <button class="button b8">8</button>
-      <button class="button b9">9</button>
-      <button class="button bplus">+</button>
-      <br>
-      <button class="button b4">4</button>
-      <button class="button b5">5</button>
-      <button class="button b6">6</button>
-      <button class="button bminus">-</button>
-      <br>
-      <button class="button b1">1</button>
-      <button class="button b2">2</button>
-      <button class="button b3">3</button>
-      <button class="button bx">*</button>
-      <br>
-      <button class="button b0">0</button>
-      <button class="button bdot">.</button>
-      <button class="button b=">=</button>
-      <button class="button b/">/</button>
-      <br>
-      <button class="button bclear">Clear</button>
-    </div>
-  </div>
+    <main id="calculator">
+
+        <section id="display"></section>
+
+        <section class="row">
+            <button class="input-button b7" type="button">7</button>
+            <button class="input-button b8" type="button">8</button>
+            <button class="input-button b9" type="button">9</button>
+            <button class="input-button bplus" type="button">+</button>
+        </section>
+
+        <section class="row">
+            <button class="input-button b4" type="button">4</button>
+            <button class="input-button b5" type="button">5</button>
+            <button class="input-button b6" type="button">6</button>
+            <button class="input-button button-special" type="button">-</button>
+        </section>
+
+        <section class="row">
+            <button class="input-button b1" type="button">1</button>
+            <button class="input-button b2" type="button">2</button>
+            <button class="input-button b3" type="button">3</button>
+            <button class="input-button button-special" type="button">*</button>
+        </section>
+
+        <section class="row">
+            <button class="input-button b0" type="button">0</button>
+            <button class="input-button button-special" type="button">.</button>
+            <button class="input-button button-special" type="button">=</button>
+            <button class="input-button button-special" type="button">/</button>
+        </section>
+
+        <section class="row">
+            <button class="input-button button-special bclear" type="button">Clear</button>
+        </section>
+
+    </main>
 </body>
+
 </html>
