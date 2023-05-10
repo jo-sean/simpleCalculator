@@ -73,16 +73,16 @@ body {
 }
 
 .button-special {
-    background-color: lightcoral;
-    border: none;
+    background-color: #4f7e70;
+    /* border: none;
     margin: 0 5%;
     padding: 20px;
     font-size: 80%;
     border-radius: 1rem;
-    cursor: pointer;
+    cursor: pointer; */
 }
 
-.button-special:hover:not(:disabled) {
+/* .button-special:hover:not(:disabled) {
     background: #96dcc8;
     color: white;
     text-shadow: 0 0.1rem #bcb4b4;
@@ -97,4 +97,4 @@ body {
     color: white;
     box-shadow: 0 0.2rem #dfd9d9;
     transform: translateY(0.2rem);
-}
+} */
