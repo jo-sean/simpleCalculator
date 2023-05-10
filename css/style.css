@@ -27,9 +27,14 @@ body {
 }
 
 #display {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
     width: 100%;
     height: 7vh;
     background-color: #eeeeee;
+    font-size: 4vh;
 }
 
 /* .button {
