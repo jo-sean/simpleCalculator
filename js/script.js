@@ -32,18 +32,18 @@ function operator(operator, a, b) {
     }
 }
 
-let displayString = '0';
+let operationArray = {
+    firstNum: null,
+    operatorSymbol: null,
+    secondNum: null
+};
 
-// Displays value of displayString, 
-// cuts off string to max of 15 characters by creating a substring
-function displayContent() {
-    const display = document.getElementById('display');
-    display.innerText = displayString;
-
-    if (displayValue.length > 16) {
-        display.innerText = displayString.substring(0, 9);
+function addNumber(number) {
+    let display = document.getElementById("display");
+    let displayText = display.value;
+    if (displayText == "0" || displayText == ".") {
+        display.value = number;
+    } else {
+        display.value = displayText + number;
     }
 }
-
-displayContent();
-
