@@ -53,17 +53,32 @@ function addNumber(number) {
 
 function addOperator(symbol) {
     if (operationArray.firstNum && operationArray.operatorSymbol) {
-        alert(`Value of second num is ${display.value}`);
         let result = operator(operationArray.operatorSymbol,
             operationArray.firstNum,
             Number(display.value));
 
         display.value = result;
-        operationArray.firstNum = result; //only if not an error
-        operationArray.operatorSymbol = symbol;
+
+        if (result === "Yucky") {
+            clearAll(true);
+        } else {
+            operationArray.firstNum = result;
+            operationArray.operatorSymbol = symbol;
+        }
     } else {
         operationArray.firstNum = Number(display.value);
         operationArray.operatorSymbol = symbol;
     };
 }
 
+function clearAll(boolVal) {
+    operationArray = {
+        firstNum: null,
+        operatorSymbol: null,
+        secondNum: null
+    };
+
+    if (!boolVal) {
+        display.value = '0';
+    };
+}
