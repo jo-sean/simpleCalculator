@@ -32,10 +32,12 @@ function operator(operator, a, b) {
     }
 }
 
+
 let operationArray = {
     firstNum: null,
     operatorSymbol: null,
 };
+
 
 function addNumber(number) {
     let display = document.getElementById("display");
@@ -49,6 +51,7 @@ function addNumber(number) {
         display.value = displayText + number;
     };
 };
+
 
 function addOperator(symbol) {
     if (operationArray.firstNum && operationArray.operatorSymbol) {
@@ -66,6 +69,7 @@ function addOperator(symbol) {
     };
 }
 
+
 function clearAll(boolVal) {
     operationArray = {
         firstNum: null,
@@ -78,6 +82,7 @@ function clearAll(boolVal) {
     };
 }
 
+
 function equals() {
     let result = operator(operationArray.operatorSymbol,
         operationArray.firstNum,
@@ -88,9 +93,16 @@ function equals() {
     return result;
 };
 
+
 function addDecimal() {
     if (display.value.includes(".")) {
         return;
     }
     display.value += ".";
+};
+
+function deleteLast() {
+    if (display.value.length > 0) {
+        display.value = display.value.slice(0, -1);
+    };
 };
