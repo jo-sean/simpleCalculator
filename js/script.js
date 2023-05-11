@@ -12,7 +12,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
-        return "Error: Cannot divide by zero";
+        return "Yucky";
     }
     return a / b;
 }
@@ -32,18 +32,67 @@ function operator(operator, a, b) {
     }
 }
 
-let displayString = '0';
 
-// Displays value of displayString, 
-// cuts off string to max of 15 characters by creating a substring
-function displayContent() {
-    const display = document.getElementById('display');
-    display.innerText = displayString;
+let operationArray = {
+    firstNum: null,
+    operatorSymbol: null,
+};
 
-    if (displayValue.length > 16) {
-        display.innerText = displayString.substring(0, 9);
-    }
+
+function addNumber(number) {
+    let display = document.getElementById("display");
+    let displayText = display.value;
+    if (displayText === "0" ||
+        displayText === "." ||
+        displayText.match(/^[A-Za-z]*$/) ||
+        operationArray.operatorSymbol) {
+        display.value = number;
+    } else {
+        display.value = displayText + number;
+    };
+};
+
+
+function addOperator(symbol) {
+    if (operationArray.firstNum && operationArray.operatorSymbol) {
+        equals();
+        if (operationArray.firstNum === "Yucky") { clearAll(true); }
+        else { operationArray.operatorSymbol = symbol; };
+    } else {
+        operationArray.firstNum = Number(display.value);
+        operationArray.operatorSymbol = symbol;
+    };
 }
 
-displayContent();
 
+function clearAll(boolVal) {
+    operationArray = {
+        firstNum: null,
+        operatorSymbol: null,
+        secondNum: null
+    };
+    if (!boolVal) { display.value = '0'; };
+};
+
+
+function equals() {
+    if (operationArray.firstNum && display.value) {
+        let result = operator(operationArray.operatorSymbol,
+            operationArray.firstNum,
+            Number(display.value));
+        display.value = result;
+        operationArray.firstNum = result;
+    };
+    return;
+};
+
+
+function addDecimal() {
+    if (display.value.includes(".")) { return; }
+    display.value += ".";
+};
+
+
+function deleteLast() {
+    if (display.value.length > 0) { display.value = display.value.slice(0, -1); };
+};
