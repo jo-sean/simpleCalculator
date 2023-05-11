@@ -1,34 +1,29 @@
 body {
     display: flex;
-    height: 80vh;
+    height: 90vh;
     align-items: center;
     justify-content: center;
-    padding: 5%;
 }
 
 .calculator {
     align-content: center;
     display: flex;
-    border: 1.3rem solid rgba(47, 47, 47, 1);
+    border: 1.5rem solid rgba(47, 47, 47, 1);
     align-items: center;
     flex-direction: column;
-    margin-top: 8%;
-    max-width: 50rem;
-    width: 30%;
-    height: 95%;
-    justify-content: space-around;
+    width: 30rem;
+    height: 60em;
+    justify-content: space-between;
     background-color: rgb(0, 0, 0);
-    padding: 2%;
-    margin-bottom: 5rem;
 }
 
-.brow {
+.row {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 25%;
-    height: 15%;
-    margin: 5%;
+    width: 20em;
+    height: 8rem;
+    margin: 1em;
 }
 
 #display {
@@ -36,27 +31,23 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: end;
-    width: 100%;
-    height: 20%;
+    width: 28rem;
+    height: 8rem;
     background-color: #e5e5e5;
-    font-size: 250%;
-    margin-top: 1rem;
+    font-size: 4rem;
+    margin-top: .3em;
 }
 
 .input-button {
     background-color: #96dcc8;
-    border: none;
-    margin: 0 15%;
-    padding: 25%;
+    border: 1rem solid #96dcc8;
+    margin: .1em;
+    padding: 2rem;
     font-size: 1.2rem;
-    border-radius: 1em;
+    border-radius: .6em;
     cursor: pointer;
-    height: 3rem;
+    
     font-weight: bolder;
-}
-
-.bClear {
-    border:  4rem;
 }
 
 .input-button:active {
@@ -76,6 +67,13 @@ body {
     color: grey;
 }
 
-.symbol {
+/*.bClear {
+    width: 6rem;
+    height: 8em;
+    font-weight: bolder;
+    max-height: 1em;
+}*/
+
+.button-special {
     background-color: #4f7e70;
 }
