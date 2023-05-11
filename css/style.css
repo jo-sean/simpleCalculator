@@ -1,30 +1,34 @@
 body {
     display: flex;
-    height: 90vh;
+    height: 80vh;
     align-items: center;
     justify-content: center;
+    padding: 5%;
 }
 
-#calculator {
+.calculator {
     align-content: center;
     display: flex;
-    border: 1.5rem solid rgba(47, 47, 47, 1);
+    border: 1.3rem solid rgba(47, 47, 47, 1);
     align-items: center;
     flex-direction: column;
-    margin: 0;
-    width: 30rem;
-    height: 45em;
+    margin-top: 8%;
+    max-width: 50rem;
+    width: 30%;
+    height: 95%;
     justify-content: space-around;
     background-color: rgb(0, 0, 0);
+    padding: 2%;
+    margin-bottom: 5rem;
 }
 
-.row {
+.brow {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 25em;
-    height: 8rem;
-    margin: 2em;
+    width: 25%;
+    height: 15%;
+    margin: 5%;
 }
 
 #display {
@@ -32,23 +36,27 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: end;
-    width: 28rem;
-    height: 8rem;
+    width: 100%;
+    height: 20%;
     background-color: #e5e5e5;
-    font-size: 4rem;
-    margin-top: .3em;
+    font-size: 250%;
+    margin-top: 1rem;
 }
 
 .input-button {
     background-color: #96dcc8;
     border: none;
-    margin: 0 1em;
-    padding: 2rem;
+    margin: 0 15%;
+    padding: 25%;
     font-size: 1.2rem;
     border-radius: 1em;
     cursor: pointer;
     height: 3rem;
     font-weight: bolder;
+}
+
+.bClear {
+    border:  4rem;
 }
 
 .input-button:active {
