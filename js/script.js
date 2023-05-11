@@ -44,7 +44,7 @@ let display = document.getElementById("display"),
     operationArray = {
         firstNum: null,
         operatorSymbol: null,
-        operatorSequenceFlag: false
+        sequenceFlag: false
     };
 
 
@@ -53,9 +53,9 @@ function addNumber(number) {
     let displayText = display.value;
     if (displayText === "0" ||
         displayText.match(/^[A-Za-z]*$/) ||
-        operationArray.operatorSequenceFlag) {
+        operationArray.sequenceFlag) {
         display.value = number;
-        operationArray.operatorSequenceFlag = false;
+        operationArray.sequenceFlag = false;
     } else {
         display.value = displayText + number;
     };
@@ -66,7 +66,7 @@ function addOperator(symbol) {
     if (operationArray.firstNum !== null && operationArray.operatorSymbol) { equals(); };
     operationArray.firstNum = Number(display.value);
     operationArray.operatorSymbol = symbol;
-    operationArray.operatorSequenceFlag = true;
+    ;
 }
 
 
@@ -74,19 +74,26 @@ function clearAll(boolVal) {
     operationArray = {
         firstNum: null,
         operatorSymbol: null,
-        operatorSequenceFlag: false
+        sequenceFlag: false
     };
-    if (!boolVal) { display.value = '0'; };
+    if (!boolVal) { zeroDisplayValue(); };
 };
+
+function zeroDisplayValue() {
+    display.value = '0';
+};
+
+
+function roundNum(num) { return num.toPrecision(12); };
 
 
 function equals() {
     if (operationArray.firstNum !== null && display.value) {
-        let result = operator(operationArray.operatorSymbol,
+        let result = roundNum(operator(operationArray.operatorSymbol,
             operationArray.firstNum,
-            Number(display.value));
+            Number(display.value))).toString();
         clearAll(true);
-        display.value = result.toString();
+        display.value = result;
     };
     return;
 };
@@ -94,6 +101,10 @@ function equals() {
 
 function addDecimal() {
     if (display.value.includes(".")) { return; }
+    else if (operationArray.firstNum && !operationArray.operatorSymbol) {
+        zeroDisplayValue();
+        operationArray.sequenceFlag = false;
+    };
     display.value += ".";
 };
 
