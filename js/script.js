@@ -63,10 +63,7 @@ function addNumber(number) {
 
 // Adds operator
 function addOperator(symbol) {
-    if (operationArray.firstNum && operationArray.operatorSymbol) {
-        equals();
-        operationArray.secondNum = false;
-    };
+    if (operationArray.firstNum !== null && operationArray.operatorSymbol) { equals(); };
     operationArray.firstNum = Number(display.value);
     operationArray.operatorSymbol = symbol;
     operationArray.operatorSequenceFlag = true;
@@ -84,13 +81,12 @@ function clearAll(boolVal) {
 
 
 function equals() {
-    if (operationArray.firstNum && display.value) {
+    if (operationArray.firstNum !== null && display.value) {
         let result = operator(operationArray.operatorSymbol,
             operationArray.firstNum,
             Number(display.value));
-
         clearAll(true);
-        display.value = result;
+        display.value = result.toString();
     };
     return;
 };
