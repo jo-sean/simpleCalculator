@@ -55,14 +55,9 @@ function addNumber(number) {
 
 function addOperator(symbol) {
     if (operationArray.firstNum && operationArray.operatorSymbol) {
-        let result = equals();
-
-        if (result === "Yucky") {
-            clearAll(true);
-        } else {
-            operationArray.firstNum = result;
-            operationArray.operatorSymbol = symbol;
-        }
+        equals();
+        if (operationArray.firstNum === "Yucky") { clearAll(true); }
+        else { operationArray.operatorSymbol = symbol; };
     } else {
         operationArray.firstNum = Number(display.value);
         operationArray.operatorSymbol = symbol;
@@ -76,33 +71,28 @@ function clearAll(boolVal) {
         operatorSymbol: null,
         secondNum: null
     };
-
-    if (!boolVal) {
-        display.value = '0';
-    };
-}
+    if (!boolVal) { display.value = '0'; };
+};
 
 
 function equals() {
-    let result = operator(operationArray.operatorSymbol,
-        operationArray.firstNum,
-        Number(display.value));
-
-    display.value = result;
-    clearAll(true);
-    return result;
+    if (operationArray.firstNum && display.value) {
+        let result = operator(operationArray.operatorSymbol,
+            operationArray.firstNum,
+            Number(display.value));
+        display.value = result;
+        operationArray.firstNum = result;
+    };
+    return;
 };
 
 
 function addDecimal() {
-    if (display.value.includes(".")) {
-        return;
-    }
+    if (display.value.includes(".")) { return; }
     display.value += ".";
 };
 
+
 function deleteLast() {
-    if (display.value.length > 0) {
-        display.value = display.value.slice(0, -1);
-    };
+    if (display.value.length > 0) { display.value = display.value.slice(0, -1); };
 };
