@@ -3,20 +3,23 @@ body {
     height: 80vh;
     align-items: center;
     justify-content: center;
+    padding: 5%;
 }
 
 .calculator {
     align-content: center;
     display: flex;
-    border: 1.5rem solid rgba(47, 47, 47, 1);
+    border: 1.3rem solid rgba(47, 47, 47, 1);
     align-items: center;
     flex-direction: column;
     margin-top: 8%;
     max-width: 50rem;
     width: 30%;
-    height: 90%;
+    height: 95%;
     justify-content: space-around;
     background-color: rgb(0, 0, 0);
+    padding: 2%;
+    margin-bottom: 5rem;
 }
 
 .brow {
@@ -33,11 +36,11 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: end;
-    width: 90%;
+    width: 100%;
     height: 20%;
     background-color: #e5e5e5;
     font-size: 250%;
-    margin-top: 5%;
+    margin-top: 1rem;
 }
 
 .input-button {
@@ -50,6 +53,10 @@ body {
     cursor: pointer;
     height: 3rem;
     font-weight: bolder;
+}
+
+.bClear {
+    border:  4rem;
 }
 
 .input-button:active {
