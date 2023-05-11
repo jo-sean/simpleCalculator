@@ -87,3 +87,10 @@ function equals() {
     clearAll(true);
     return result;
 };
+
+function addDecimal() {
+    if (display.value.includes(".")) {
+        return;
+    }
+    display.value += ".";
+};
