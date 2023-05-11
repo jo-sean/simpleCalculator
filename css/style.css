@@ -68,13 +68,6 @@ body {
     color: grey;
 }
 
-.bClear {
-    width: 50rem;
-    height: 8em;
-    font-weight: bolder;
-    max-height: 1em;
-}
-
 .button-special {
     background-color: #4f7e70;
 }
