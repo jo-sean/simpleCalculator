@@ -44,7 +44,6 @@ let display = document.getElementById("display"),
     operationArray = {
         firstNum: null,
         operatorSymbol: null,
-        secondNum: false,
         operatorSequenceFlag: false
     };
 
@@ -54,8 +53,7 @@ function addNumber(number) {
     let displayText = display.value;
     if (displayText === "0" ||
         displayText.match(/^[A-Za-z]*$/) ||
-        operationArray.operatorSequenceFlag ||
-        operationArray.secondNum) {
+        operationArray.operatorSequenceFlag) {
         display.value = number;
         operationArray.operatorSequenceFlag = false;
     } else {
@@ -65,21 +63,13 @@ function addNumber(number) {
 
 // Adds operator
 function addOperator(symbol) {
-    if (operationArray.firstNum &&
-        operationArray.operatorSymbol &&
-        operationArray.secondNum) {
+    if (operationArray.firstNum && operationArray.operatorSymbol) {
         equals();
         operationArray.secondNum = false;
-    } else if (!operationArray.secondNum) {
-        operationArray.firstNum = Number(display.value);
-        operationArray.operatorSymbol = symbol;
-        operationArray.operatorSequenceFlag = true;
-        return;
     };
-
-    // operationArray.firstNum = Number(display.value);
-    // operationArray.operatorSymbol = symbol;
-    // operationArray.operatorSequenceFlag = true;
+    operationArray.firstNum = Number(display.value);
+    operationArray.operatorSymbol = symbol;
+    operationArray.operatorSequenceFlag = true;
 }
 
 
