@@ -35,7 +35,6 @@ function operator(operator, a, b) {
 let operationArray = {
     firstNum: null,
     operatorSymbol: null,
-    secondNum: null
 };
 
 function addNumber(number) {
@@ -53,11 +52,7 @@ function addNumber(number) {
 
 function addOperator(symbol) {
     if (operationArray.firstNum && operationArray.operatorSymbol) {
-        let result = operator(operationArray.operatorSymbol,
-            operationArray.firstNum,
-            Number(display.value));
-
-        display.value = result;
+        let result = equals();
 
         if (result === "Yucky") {
             clearAll(true);
@@ -82,3 +77,13 @@ function clearAll(boolVal) {
         display.value = '0';
     };
 }
+
+function equals() {
+    let result = operator(operationArray.operatorSymbol,
+        operationArray.firstNum,
+        Number(display.value));
+
+    display.value = result;
+    clearAll(true);
+    return result;
+};
