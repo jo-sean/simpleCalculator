@@ -12,7 +12,7 @@ body {
     align-items: center;
     flex-direction: column;
     width: 30rem;
-    height: 45em;
+    height: 60em;
     justify-content: space-between;
     background-color: rgb(0, 0, 0);
 }
@@ -21,9 +21,9 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 25em;
+    width: 20em;
     height: 8rem;
-    margin: 2em;
+    margin: 1em;
 }
 
 #display {
@@ -40,13 +40,13 @@ body {
 
 .input-button {
     background-color: #96dcc8;
-    border: none;
-    margin: 0 1em;
+    border: 1rem solid #96dcc8;
+    margin: .1em;
     padding: 2rem;
     font-size: 1.2rem;
-    border-radius: 1em;
+    border-radius: .6em;
     cursor: pointer;
-    height: 3rem;
+    
     font-weight: bolder;
 }
 
@@ -67,12 +67,12 @@ body {
     color: grey;
 }
 
-.bClear {
-    width: 50rem;
+/*.bClear {
+    width: 6rem;
     height: 8em;
     font-weight: bolder;
     max-height: 1em;
-}
+}*/
 
 .button-special {
     background-color: #4f7e70;
