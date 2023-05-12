@@ -3,6 +3,8 @@ Calculator app using HTML, CSS, and Javascript
 
  A simple calculator, with the UI created with only vanilla HTML and CSS showcasing consistent theming. The logic is handled by vanilla javascript.
 
+## Preview
+
 LINK: https://jo-sean.github.io/calculator_js/
 
 ## Contributers
