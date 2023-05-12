@@ -3,27 +3,29 @@ body {
     height: 90vh;
     align-items: center;
     justify-content: center;
+    background-color: gray;
 }
 
 .calculator {
     align-content: center;
     display: flex;
-    border: 1.5rem solid rgba(47, 47, 47, 1);
+    border: 1rem solid rgb(55, 55, 55);
     align-items: center;
     flex-direction: column;
-    width: 30rem;
-    height: 60em;
+    width: 22rem;
+    height: 36rem;
     justify-content: space-between;
     background-color: rgb(0, 0, 0);
 }
 
 .row {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
-    width: 20em;
-    height: 8rem;
-    margin: 1em;
+    width: 21em;
+    height: 5rem;
+    margin: 10em;
+    align-content: center;
 }
 
 #display {
@@ -31,23 +33,28 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: end;
-    width: 28rem;
-    height: 8rem;
+    width: 21rem;
+    height: 5rem;
     background-color: #e5e5e5;
     font-size: 4rem;
-    margin-top: .3em;
+    margin-top: .2em;
 }
 
 .input-button {
-    background-color: #96dcc8;
-    border: 1rem solid #96dcc8;
-    margin: .1em;
-    padding: 2rem;
+    background-color: #a8a8a8;
+    border: 1rem solid #a8a8a8;
+    margin: .2em;
+    padding: 1rem;
     font-size: 1.2rem;
     border-radius: .6em;
     cursor: pointer;
-    
     font-weight: bolder;
+}
+
+.bottomrow {
+    height: 1rem;
+    width: 10rem;
+    margin-bottom: 4rem;
 }
 
 .input-button:active {
@@ -57,7 +64,7 @@ body {
 }
 
 .input-button:hover:not(:disabled) {
-    background: lightcoral;
+    background: rgb(233, 232, 232);
     color: white;
     text-shadow: 0 0.1rem #bcb4b4;
 }
@@ -66,13 +73,6 @@ body {
     cursor: auto;
     color: grey;
 }
-
-/*.bClear {
-    width: 6rem;
-    height: 8em;
-    font-weight: bolder;
-    max-height: 1em;
-}*/
 
 .button-special {
     background-color: #4f7e70;
