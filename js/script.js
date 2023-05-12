@@ -61,7 +61,8 @@ function addNumber(number) {
     };
 };
 
-// Adds operator
+// Adds operator  symbol and first num, 
+// if using two operators back to back, calls equals and sets value to first num
 function addOperator(symbol) {
     if (operationArray.firstNum !== null && operationArray.operatorSymbol) { equals(); };
     operationArray.firstNum = Number(display.value);
@@ -69,7 +70,7 @@ function addOperator(symbol) {
     operationArray.sequenceFlag = true;
 }
 
-
+// Reset array to null values and if false, zero out the display.value as well
 function clearAll(boolVal) {
     operationArray = {
         firstNum: null,
@@ -79,14 +80,15 @@ function clearAll(boolVal) {
     if (!boolVal) { zeroDisplayValue(); };
 };
 
+// Zero out the display.value
 function zeroDisplayValue() {
     display.value = '0';
 };
 
-
+// Round numbers to 12 significant figures
 function roundNum(num) { return num.toPrecision(12); };
 
-
+// Call operator, clear array, display results
 function equals() {
     if (operationArray.firstNum !== null && display.value) {
         let result = roundNum(operator(operationArray.operatorSymbol,
