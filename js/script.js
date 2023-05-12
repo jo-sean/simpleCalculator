@@ -108,7 +108,6 @@ function equals() {
     return;
 };
 
-
 function addDecimal() {
     if (display.value.includes(".")) { return; }
     else if (operationArray.firstNum && !operationArray.operatorSymbol) {
@@ -118,7 +117,6 @@ function addDecimal() {
     display.value += ".";
 };
 
-
 function deleteLast() {
     if (display.value.length > 0 && !display.value.includes("-")) {
         display.value = display.value.slice(0, -1);
@@ -126,7 +124,6 @@ function deleteLast() {
         zeroDisplayValue();
     };
 };
-
 
 window.addEventListener('keydown', function (event) {
     const key = document.querySelector(`button[value='${event.key}']`);

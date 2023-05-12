@@ -1,12 +1,17 @@
+header {
+    margin-bottom: 3vh;
+}
+
 body {
     display: flex;
     height: 90vh;
     align-items: center;
     justify-content: center;
     background-color: gray;
+    flex-direction: column;
 }
 
-.calculator {
+#calculator {
     align-content: center;
     display: flex;
     border: 1rem solid rgb(55, 55, 55);
