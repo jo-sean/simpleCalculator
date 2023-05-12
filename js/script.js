@@ -51,7 +51,8 @@ let display = document.getElementById("display"),
 // Adds numbers to display.value
 function addNumber(number) {
     let displayText = display.value;
-    if (displayText === "0" || displayText.match(/^[A-Za-z]*$/) || operationArray.sequenceFlag) {
+    if (displayText === "0" || displayText.match(/^[A-Za-z]*$/) || 
+        operationArray.sequenceFlag) {
         display.value = number;
         operationArray.sequenceFlag = false;
     } else if (displayText.length < 10) {
@@ -85,7 +86,12 @@ function zeroDisplayValue() {
 
 // Round numbers to 12 significant figures
 function roundNum(num) {
-    return Number.parseFloat(num).toPrecision(10);
+    let rounded = Number.parseFloat(num).toPrecision(10);
+    if (Number.isInteger(Number(rounded))) {
+        return Number(rounded).toFixed(0);
+    } else {
+        return Number(rounded).toString();
+    }
 };
 
 // Call operator, clear array, display results
