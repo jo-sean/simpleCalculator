@@ -51,7 +51,8 @@ let display = document.getElementById("display"),
 // Adds numbers to display.value
 function addNumber(number) {
     let displayText = display.value;
-    if (displayText === "0" || displayText.match(/^[A-Za-z]*$/) || 
+    if (displayText === "0" ||
+        displayText.match(/^[A-Za-z]*$/) ||
         operationArray.sequenceFlag) {
         display.value = number;
         operationArray.sequenceFlag = false;
@@ -63,7 +64,8 @@ function addNumber(number) {
 // Adds operator  symbol and first num, 
 // if using two operators back to back, calls equals and sets value to first num
 function addOperator(symbol) {
-    if (operationArray.firstNum !== null && operationArray.operatorSymbol) { equals(); };
+    if (operationArray.firstNum !== null &&
+        operationArray.operatorSymbol) { equals(); };
     operationArray.firstNum = Number(display.value);
     operationArray.operatorSymbol = symbol;
     operationArray.sequenceFlag = true;
@@ -118,5 +120,15 @@ function addDecimal() {
 
 
 function deleteLast() {
-    if (display.value.length > 0) { display.value = display.value.slice(0, -1); };
+    if (display.value.length > 0 && !display.value.includes("-")) {
+        display.value = display.value.slice(0, -1);
+    } else if (display.value.length === 2 && display.value.includes("-")) {
+        zeroDisplayValue();
+    };
 };
+
+
+window.addEventListener('keydown', function (event) {
+    const key = document.querySelector(`button[value='${event.key}']`);
+    key.click();
+});
