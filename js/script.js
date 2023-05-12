@@ -66,7 +66,7 @@ function addOperator(symbol) {
     if (operationArray.firstNum !== null && operationArray.operatorSymbol) { equals(); };
     operationArray.firstNum = Number(display.value);
     operationArray.operatorSymbol = symbol;
-    ;
+    operationArray.sequenceFlag = true;
 }
 
 
