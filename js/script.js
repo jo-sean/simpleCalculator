@@ -120,5 +120,10 @@ function addDecimal() {
 
 
 function deleteLast() {
-    if (display.value.length > 0) { display.value = display.value.slice(0, -1); };
+    if (display.value.length > 0 && !display.value.includes("-")) {
+        display.value = display.value.slice(0, -1);
+    } else if (display.value.length === 2 && display.value.includes("-")) {
+        zeroDisplayValue();
+    };
 };
+
