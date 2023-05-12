@@ -126,6 +126,8 @@ function deleteLast() {
 };
 
 window.addEventListener('keydown', function (event) {
+    if (!`button[value='${event.key}']`) { return; }
+
     const key = document.querySelector(`button[value='${event.key}']`);
     key.click();
 });
