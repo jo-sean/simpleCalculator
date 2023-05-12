@@ -51,14 +51,12 @@ let display = document.getElementById("display"),
 // Adds numbers to display.value
 function addNumber(number) {
     let displayText = display.value;
-    if (displayText === "0" ||
-        displayText.match(/^[A-Za-z]*$/) ||
-        operationArray.sequenceFlag) {
+    if (displayText === "0" || displayText.match(/^[A-Za-z]*$/) || operationArray.sequenceFlag) {
         display.value = number;
         operationArray.sequenceFlag = false;
-    } else {
+    } else if (displayText.length < 10) {
         display.value = displayText + number;
-    };
+    }
 };
 
 // Adds operator  symbol and first num, 
@@ -86,7 +84,9 @@ function zeroDisplayValue() {
 };
 
 // Round numbers to 12 significant figures
-function roundNum(num) { return num.toPrecision(12); };
+function roundNum(num) {
+    return Number.parseFloat(num).toPrecision(10);
+};
 
 // Call operator, clear array, display results
 function equals() {
