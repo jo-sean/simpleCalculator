@@ -148,8 +148,12 @@ function deleteLast() {
 };
 
 window.addEventListener('keydown', function (event) {
-    if (!`button[value='${event.key}']`) { return; }
+    let press = event.key;
 
-    const key = document.querySelector(`button[value='${event.key}']`);
+    if (press === "Delete") {
+        press = "Backspace"
+    } else if (!`button[value='${press}']`) { return; }
+
+    const key = document.querySelector(`button[value='${press}']`);
     key.click();
 });
