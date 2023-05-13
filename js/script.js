@@ -97,9 +97,13 @@ function roundNum(num) {
 // Call operator, clear array, display results
 function equals() {
     if (operationArray.firstNum !== null && display.value) {
-        let result = roundNum(operator(operationArray.operatorSymbol,
+        let result = operator(operationArray.operatorSymbol,
             operationArray.firstNum,
-            Number(display.value))).toString();
+            Number(display.value)).toString();
+
+        if (!(result === typeof string)) {
+            roundNum(result);
+        };
         clearAll(true);
         display.value = result;
     };
