@@ -54,7 +54,7 @@ function addNumber(number) {
         operationArray.sequenceFlag) {
         display.value = number;
         operationArray.sequenceFlag = false;
-    } else if (displayText.length < 5) {
+    } else if (displayText.length < 10) {
         display.value = displayText + number;
     }
 };
@@ -86,7 +86,7 @@ function zeroDisplayValue() {
 
 // Round numbers to 12 significant figures
 function roundNum(num) {
-    let rounded = Number.parseFloat(num).toPrecision(10);
+    let rounded = Number.parseFloat(num).toPrecision(5);
     if (Number.isInteger(Number(rounded))) {
         return Number(rounded).toFixed(0);
     } else {
