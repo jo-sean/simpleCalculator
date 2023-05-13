@@ -117,10 +117,10 @@ function equals() {
     if (operationArray.firstNum !== null && display.value) {
         let result = operator(operationArray.operatorSymbol,
             operationArray.firstNum,
-            Number(display.value)).toString();
+            Number(display.value));
 
         if (!(result === typeof string)) {
-            roundNum(result);
+            result = roundNum(result).toString().substring(0, 7);
         };
         clearAll(true);
         display.value = result;
