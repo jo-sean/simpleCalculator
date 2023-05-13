@@ -43,7 +43,8 @@ let display = document.getElementById("display"),
     operationArray = {
         firstNum: null,
         operatorSymbol: null,
-        sequenceFlag: false
+        sequenceFlag: false,
+        prevOperator: null
     };
 
 // Adds numbers to display.value
@@ -62,19 +63,36 @@ function addNumber(number) {
 // Adds operator  symbol and first num, 
 // if using two operators back to back, calls equals and sets value to first num
 function addOperator(symbol) {
-    if (operationArray.firstNum !== null &&
-        operationArray.operatorSymbol) { equals(); };
-    operationArray.firstNum = Number(display.value);
+    let signChange = checkOperator(symbol);
+
+    if (signChange) {
+        if (operationArray.firstNum !== null &&
+            operationArray.operatorSymbol) { equals(); };
+        operationArray.firstNum = Number(display.value);
+        operationArray.operatorSymbol = symbol;
+        operationArray.sequenceFlag = true;
+    };
     operationArray.operatorSymbol = symbol;
-    operationArray.sequenceFlag = true;
-}
+};
+
+function checkOperator(currOperator) {
+    if (!operationArray.prevOperator) {
+        operationArray.prevOperator = currOperator;
+        return true;
+    } else if (operationArray.prevOperator !== currOperator) {
+        operationArray.prevOperator = currOperator;
+        return false
+    };
+    return true
+};
 
 // Reset array to null values and if false, zero out the display.value as well
 function clearAll(boolVal) {
     operationArray = {
         firstNum: null,
         operatorSymbol: null,
-        sequenceFlag: false
+        sequenceFlag: false,
+        prevOperator: null
     };
     if (!boolVal) { zeroDisplayValue(); };
 };
@@ -97,9 +115,13 @@ function roundNum(num) {
 // Call operator, clear array, display results
 function equals() {
     if (operationArray.firstNum !== null && display.value) {
-        let result = roundNum(operator(operationArray.operatorSymbol,
+        let result = operator(operationArray.operatorSymbol,
             operationArray.firstNum,
-            Number(display.value))).toString();
+            Number(display.value));
+
+        if (!(result === typeof string)) {
+            result = roundNum(result).toString().substring(0, 7);
+        };
         clearAll(true);
         display.value = result;
     };
@@ -107,7 +129,7 @@ function equals() {
 };
 
 function addDecimal() {
-    if (display.value.includes(".")) { return; }
+    if (display.value.includes(".") || display.value === "Yucky") { return; }
     else if (operationArray.firstNum && !operationArray.operatorSymbol) {
         zeroDisplayValue();
         operationArray.sequenceFlag = false;
