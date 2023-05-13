@@ -64,10 +64,12 @@ function addNumber(number) {
 // if using two operators back to back, calls equals and sets value to first num
 function addOperator(symbol) {
     let signChange = checkOperator(symbol);
-
     if (signChange) {
         if (operationArray.firstNum !== null &&
-            operationArray.operatorSymbol) { equals(); };
+            operationArray.operatorSymbol) {
+            equals();
+            operationArray.prevOperator = symbol;
+        };
         operationArray.firstNum = Number(display.value);
         operationArray.operatorSymbol = symbol;
         operationArray.sequenceFlag = true;
