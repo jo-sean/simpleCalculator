@@ -16,6 +16,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
+        alert("You can't divide on ZERO!!");
         return "Yucky";
     }
     return a / b;
