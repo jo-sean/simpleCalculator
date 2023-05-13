@@ -38,7 +38,6 @@ function operator(operator, a, b) {
     }
 }
 
-
 // Global array holding first number input and operation to occur
 let display = document.getElementById("display"),
     operationArray = {
@@ -46,7 +45,6 @@ let display = document.getElementById("display"),
         operatorSymbol: null,
         sequenceFlag: false
     };
-
 
 // Adds numbers to display.value
 function addNumber(number) {
@@ -88,7 +86,7 @@ function zeroDisplayValue() {
 
 // Round numbers to 12 significant figures
 function roundNum(num) {
-    let rounded = Number.parseFloat(num).toPrecision(10);
+    let rounded = Number.parseFloat(num).toPrecision(5);
     if (Number.isInteger(Number(rounded))) {
         return Number(rounded).toFixed(0);
     } else {
