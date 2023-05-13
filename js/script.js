@@ -121,7 +121,7 @@ function equals() {
             operationArray.firstNum,
             Number(display.value));
 
-        if (!(result === typeof string)) {
+        if (result !== "Yucky") {
             result = roundNum(result).toString().substring(0, 7);
         };
         clearAll(true);
