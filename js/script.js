@@ -38,7 +38,6 @@ function operator(operator, a, b) {
     }
 }
 
-
 // Global array holding first number input and operation to occur
 let display = document.getElementById("display"),
     operationArray = {
@@ -46,7 +45,6 @@ let display = document.getElementById("display"),
         operatorSymbol: null,
         sequenceFlag: false
     };
-
 
 // Adds numbers to display.value
 function addNumber(number) {
@@ -56,7 +54,7 @@ function addNumber(number) {
         operationArray.sequenceFlag) {
         display.value = number;
         operationArray.sequenceFlag = false;
-    } else if (displayText.length < 10) {
+    } else if (displayText.length < 5) {
         display.value = displayText + number;
     }
 };
