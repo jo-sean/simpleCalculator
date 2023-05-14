@@ -16,7 +16,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
-        return "Yucky";
+        return "To infinity..";
     }
     return a / b;
 }
@@ -47,18 +47,30 @@ let display = document.getElementById("display"),
         prevOperator: null
     };
 
+function setDisplayValue(val = "0") { display.value = val; };
+
+function setFirstnum(num) { operationArray.firstNum = num; };
+
+function setFlag(boolVal) { operationArray.sequenceFlag = boolVal; };
+
+function setOperator(operator) { operationArray.operatorSymbol = operator; };
+
+function setPrevOperator(operator) { operationArray.prevOperator = operator; };
+
+
 // Adds numbers to display.value
 function addNumber(number) {
     let displayText = display.value;
     if (displayText === "0" ||
         displayText.match(/^[A-Za-z]*$/) ||
         operationArray.sequenceFlag) {
-        display.value = number;
-        operationArray.sequenceFlag = false;
+        setDisplayValue(number);
+        setFlag(false);
     } else if (displayText.length < 10) {
-        display.value = displayText + number;
-    }
+        setDisplayValue(displayText + number);
+    };
 };
+
 
 // Adds operator  symbol and first num, 
 // if using two operators back to back, calls equals and sets value to first num
@@ -68,25 +80,29 @@ function addOperator(symbol) {
         if (operationArray.firstNum !== null &&
             operationArray.operatorSymbol) {
             equals();
-            operationArray.prevOperator = symbol;
+            setPrevOperator(symbol);
         };
-        operationArray.firstNum = Number(display.value);
-        operationArray.operatorSymbol = symbol;
-        operationArray.sequenceFlag = true;
+        setFirstnum(Number(display.value));
+        setOperator(symbol);
+        setFlag(true);
+        return;
     };
-    operationArray.operatorSymbol = symbol;
+    setOperator(symbol);
 };
 
+
+//Updates previous operator to apply functionality to change oeprator
 function checkOperator(currOperator) {
     if (!operationArray.prevOperator) {
-        operationArray.prevOperator = currOperator;
+        setPrevOperator(currOperator);
         return true;
     } else if (operationArray.prevOperator !== currOperator) {
-        operationArray.prevOperator = currOperator;
-        return false
+        setPrevOperator(currOperator);
+        return false;
     };
-    return true
+    return true;
 };
+
 
 // Reset array to null values and if false, zero out the display.value as well
 function clearAll(boolVal) {
@@ -96,15 +112,11 @@ function clearAll(boolVal) {
         sequenceFlag: false,
         prevOperator: null
     };
-    if (!boolVal) { zeroDisplayValue(); };
+    if (!boolVal) { setDisplayValue(); };
 };
 
-// Zero out the display.value
-function zeroDisplayValue() {
-    display.value = '0';
-};
 
-// Round numbers to 12 significant figures
+// Round numbers to 5 significant figures
 function roundNum(num) {
     let rounded = Number.parseFloat(num).toPrecision(5);
     if (Number.isInteger(Number(rounded))) {
@@ -114,6 +126,26 @@ function roundNum(num) {
     }
 };
 
+
+function addDecimal() {
+    if (display.value.includes(".") || display.value === "To infinity..") { return; }
+    else if (operationArray.firstNum && !operationArray.operatorSymbol) {
+        setDisplayValue();
+        setFlag(false);
+    };
+    setDisplayValue(display.value += ".");
+};
+
+
+function deleteLast() {
+    if (display.value.length > 0 && !display.value.includes("-")) {
+        setDisplayValue(display.value.slice(0, -1));
+    } else if (display.value.length === 2 && display.value.includes("-")) {
+        setDisplayValue();
+    };
+};
+
+
 // Call operator, clear array, display results
 function equals() {
     if (operationArray.firstNum !== null && display.value) {
@@ -121,31 +153,15 @@ function equals() {
             operationArray.firstNum,
             Number(display.value));
 
-        if (result !== "Yucky") {
+        if (result !== "To infinity..") {
             result = roundNum(result).toString().substring(0, 7);
         };
         clearAll(true);
-        display.value = result;
+        setDisplayValue(result);
     };
     return;
 };
 
-function addDecimal() {
-    if (display.value.includes(".") || display.value === "Yucky") { return; }
-    else if (operationArray.firstNum && !operationArray.operatorSymbol) {
-        zeroDisplayValue();
-        operationArray.sequenceFlag = false;
-    };
-    display.value += ".";
-};
-
-function deleteLast() {
-    if (display.value.length > 0 && !display.value.includes("-")) {
-        display.value = display.value.slice(0, -1);
-    } else if (display.value.length === 2 && display.value.includes("-")) {
-        zeroDisplayValue();
-    };
-};
 
 window.addEventListener('keydown', function (event) {
     let press = event.key;
