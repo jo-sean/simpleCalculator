@@ -47,6 +47,15 @@ This checklist was created from https://web.dev/accessible/ and accessibility fe
 
 * **Labels** Labels used for accessible names 
 
+## Keyboard Shortcut
+
+* **Number keys:** Pressing 0-9 on keyboard or numpad should return decired number.
+* **Del or Backspace keys:** Pressing Del or Backspace keys on keyboard should delete previous number on display.
+* **Change operator:** Press a different operator key or button.
+* **Operator keys:** Pressing +, -, *, or / should allow addition, subtraction, multiplication, or division, respectively. 
+* **Negative num:** Pressing - symbol on keyboard or button before number, **AND THEN** hitting enter/return key or equals button will make it negative. 
+* **Equals:** Pressing Enter/Return on keyboard or numpad should return result of computation, if there is something to compute or do nothing otherwise.
+* **Spacebar key:** Pressing spacebar will clear all from memory.
 
 ## License
 [Creative Commons Zero v1.0 Universal](https://choosealicense.com/licenses/cc0-1.0/)
