@@ -1,25 +1,26 @@
 // add, subtract, multiple, and divide functionalities for calc
 function add(a, b) {
     return a + b;
-}
+};
 
 
 function subtract(a, b) {
     return a - b;
-}
+};
 
 
 function multiply(a, b) {
     return a * b;
-}
+};
 
 
 function divide(a, b) {
     if (b === 0) {
+        alert("You can't divide on ZERO!!");
         return "To infinity..";
-    }
+    };
     return a / b;
-}
+};
 
 
 // Controls which operation occurs between any two real numbers
@@ -35,8 +36,8 @@ function operator(operator, a, b) {
             return divide(a, b);
         default:
             return "Error: Wrong operator";
-    }
-}
+    };
+};
 
 // Global array holding first number input and operation to occur
 let display = document.getElementById("display"),
