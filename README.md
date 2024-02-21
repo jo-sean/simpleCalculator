@@ -5,7 +5,7 @@ Calculator app using HTML, CSS, and Javascript
 
 ## Preview
 
-LINK: https://jo-sean.github.io/calculator_js/
+LINK: https://jo-sean.github.io/simpleCalculator/
 
 ## Contributers
 
